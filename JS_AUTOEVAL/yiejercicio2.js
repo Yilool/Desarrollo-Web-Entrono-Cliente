@@ -32,12 +32,9 @@ function addEmpleados() {
     document.getElementsByTagName("h2")[0].innerHTML = `Número total de empleados: ${tabla.getElementsByTagName("tr").length-1}`
 }
 
+//Deleterow e indexof para esta opcion
 function rmEmpleado() {
-    const tabla = document.getElementById("empleadoTab")
 
-    dni = prompt("Introduzca el DNI del empleado: ")
-
-    for
 }
 
 function mdEmpleado() {

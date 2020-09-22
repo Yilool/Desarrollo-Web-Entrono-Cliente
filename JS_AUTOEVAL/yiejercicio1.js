@@ -1,27 +1,30 @@
 function inicializar(nom1) {
     let arrayNom = []
-    let cont = 0
-    var find = false
 
-    do {
-        nom1 = prompt(`Introduce nombre ${cont+1}:`).toUpperCase
+    for (index = 1; index < 5; index++) {
+        let nom1 = prompt(`Introduce nombre ${index}:`).toUpperCase
 
-        for (nom of arrayNom) {
-            if (nom == nom1) {
+        let bol = arrayNom.includes(nom1)
 
-            }
+        if (bol) {
+            nom1 = prompt(`Introduce otro nombre ${index}:`).toUpperCase
+        } else {
+            arrayNom.push(nom1)
         }
-
-        if (find == true) {
-            nom1 = prompt(`Introduce otro nombre ${cont+1}:`).toUpperCase
-        }
-
-        cont++
-    } while (cont < 5);
+    }
 
     let arrayNomSort = arrayNom.sort()
 
+    console.log(arrayNom)
+    console.log("--");
+    console.log(arrayNomSort);
+    console.log("--");
+
     for (nom of arrayNomSort) {
-        console.log(nom)
+        nomSinPrimerCar = nom.substring(1)
+        primerCaracter = nom.substring(0, 1)
+        console.log(primerCaracter + nomSinPrimerCar.toLowerCase())
     }
+
+    //Apartir del segundo nombre me pregunta dos veces y el substring no es una funcion
 }

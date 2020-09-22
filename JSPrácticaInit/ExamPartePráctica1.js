@@ -14,7 +14,7 @@ aplicar.addEventListener('click', () => {
     newP.appendChild(document.createTextNode(point))
 
     //busco los valores a reemplazar usando la posicion
-    let oldTrs = liga.getElementsByTagName("tr")[position]//=> array de td proveniente de la fila a modificar
+    let oldTrs = liga.getElementsByTagName("tr")[position] //=> array de td proveniente de la fila a modificar
     console.log(oldTrs);
 
     //sustituyo el antiguo equipo por el nuevo  
@@ -22,7 +22,7 @@ aplicar.addEventListener('click', () => {
 
     //sustituyo los antiguos puntos por los nuevos
     oldTrs.parentNode.replaceChild(oldTrs.getElementsByTagName("td")[2], newP)
-    //Duda: oldTrs.getElementsByTagName("td")[2] => es el tercer td dentro del tr, pero dice que no es hijo de tr ¿¿??
+        //Duda: oldTrs.getElementsByTagName("td")[2] => es el tercer td dentro del tr, pero dice que no es hijo de tr ¿¿??
 })
 
 //Duda: el getelementbytagname devuelve un array con todos los elementos de ese tipo y pero no me deja recorrer ese
