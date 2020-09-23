@@ -1,0 +1,41 @@
+.box {
+    width: 100px;
+    height: 100px;
+    background: red;
+}
+
+.box :hover {
+    background: green;
+}
+
+
+/*hover no funciona??*/
+
+input {
+    width: 50%;
+    /*anchura*/
+    padding: 5px;
+    /*margen interior*/
+}
+
+input :focus {
+    border: 3xp solid greenyellow;
+    /*propiedad bordes*/
+    border-radius: 5px;
+    /*tipos bordes, hay varios*/
+    background-color: black;
+    /*color fondo*/
+    color: greenyellow;
+    /*color letra*/
+}
+
+
+/*focus no funciona*/
+
+.gallery__item {
+    padding: 15px;
+    float: left;
+    border: 1px solid black;
+    width: 100px;
+    text-align: center;
+}
