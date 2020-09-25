@@ -4,12 +4,10 @@
     background: red;
 }
 
-.box :hover {
+
+/*.box:hover {
     background: green;
-}
-
-
-/*hover no funciona??*/
+}*/
 
 input {
     width: 50%;
@@ -18,7 +16,7 @@ input {
     /*margen interior*/
 }
 
-input :focus {
+input:focus {
     border: 3xp solid greenyellow;
     /*propiedad bordes*/
     border-radius: 5px;
@@ -29,13 +27,20 @@ input :focus {
     /*color letra*/
 }
 
-
-/*focus no funciona*/
-
 .gallery__item {
     padding: 15px;
     float: left;
     border: 1px solid black;
     width: 100px;
     text-align: center;
+    background-color: cornflowerblue;
+}
+
+.gallery__item_2 {
+    padding: 15px;
+    float: left;
+    border: 1px solid black;
+    width: 100px;
+    text-align: center;
+    background-color: lawngreen;
 }
