@@ -9,19 +9,34 @@
 </head>
 
 <body>
-    <div class="container father" id="contaiter father">
+    <div class="container father" id="container father">
         <div class="info" id="info">
-
+            <b><p id="jugadorPunto">Jugador: </p></b>
+            <p><b>VS</b></p>
+            <p id="bancaPunto"><b>Banca: </b></p>
         </div>
-        <div class="container sub1" id="container sub1">
-            <div class="carta" id="carta">
+        <div class="player" id="player">
+            <div class="cartas jug" id="jug">
+                <img src="imagenes/trasera_jug.jpg" alt="">
+            </div>
+            <div class="playerObtenido">
 
             </div>
-            <div class="banca" id="banca">
+        </div>
+        <div class="boton" id="boton">
+            <input class="botones" id="reiniciar" type="button" value="Volver a empezar">
+            <input class="botones" id="plantar" type="button" value="Plantar">
+        </div>
+        <div class="banca" id="banca">
+            <div class="cartas" id="cartas">
+                <img src="imagenes/trasera.jpg" alt="">
+            </div>
+            <div class="bancaObtenido">
 
             </div>
         </div>
     </div>
 </body>
+<script src="script.js"></script>
 
 </html>
