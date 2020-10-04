@@ -9,6 +9,10 @@ const cartasUsado = new Array()
 let pointPlayer = 0
 let pointBank = 0
 
+// window.onload(alert('El juego consiste en superar en cantidad de puntos a la banca.'),
+//     alert('Regla de puntuación: '),
+//     alert('+valor si es menor o igual a 7 y +0.5 si es mayor que 7.'))
+
 //Al clikear la trasera del jugador...
 traseraJugador.addEventListener('click', () => {
     let repetido = false;
@@ -35,33 +39,35 @@ traseraJugador.addEventListener('click', () => {
     if (pointPlayer > 7.5) {
         document.getElementById("boton").innerHTML += `Has perdido`
         plantar.disabled = true
-        setTimeout(actualizar, 500)
+        setTimeout(actualizar, 800)
     }
 })
 
 plantar.addEventListener('click', () => {
     //Esto se repite hasta que los puntos de la banca supere el 7
     do {
-        //esto se repite si encuantra una carta repetida
-        let repetido = false;
-        do {
-            //genera un palo(0-3) y un valor(1-10)
-            let palo = getPalos()
-            let valor = getValores()
+        //setInterval(() => {
+                //esto se repite si encuantra una carta repetida
+            let repetido = false;
+            do {
+                //genera un palo(0-3) y un valor(1-10)
+                let palo = getPalos()
+                let valor = getValores()
 
-            //Comprueba si existe dicha carta el el array obtenido sino se le añade y se muestra en la colleccion de cartas de la banca
-            if (cartasUsado.includes(`${valor}${palos[palo]}.jpg`) == true) {
-                repetido = true
-            } else {
-                cartasUsado.push(`${valor}${palos[palo]}.jpg`)
-                document.getElementById("bancaObtenido").innerHTML += `<img class="cart" src="imagenes/${valor}${palos[palo]}.jpg">`
+                //Comprueba si existe dicha carta el el array obtenido sino se le añade y se muestra en la colleccion de cartas de la banca
+                if (cartasUsado.includes(`${valor}${palos[palo]}.jpg`) == true) {
+                    repetido = true
+                } else {
+                    cartasUsado.push(`${valor}${palos[palo]}.jpg`)
+                    document.getElementById("bancaObtenido").innerHTML += `<img class="cart" src="imagenes/${valor}${palos[palo]}.jpg">`
 
-                pointBank += sumaPuntos(valor)
+                    pointBank += sumaPuntos(valor)
 
-                document.getElementById("bancaPunto").innerHTML = `Banca: ${pointBank}`
-            }
-        } while (repetido == true);
-    } while (pointBank < 7)
+                    document.getElementById("bancaPunto").innerHTML = `Banca: ${pointBank}`
+                }
+            } while (repetido == true);
+        //}, 500);
+    } while (pointBank < pointPlayer && pointBank < 7)
 
     //Si el punto del jugador en mayor gana el jugador
     if (pointPlayer > pointBank || pointBank > 7.5) {
@@ -72,7 +78,7 @@ plantar.addEventListener('click', () => {
 
     //Actualiza dentro de 0.5s
     plantar.disabled = true
-    setTimeout(actualizar, 500)
+    setTimeout(actualizar, 800)
 })
 
 //Al clikear el boton de reiniciar llama a la funcion actualizar
@@ -104,4 +110,9 @@ function sumaPuntos(valor) {
 //Funcion actualizar: recarga la pagina
 function actualizar() {
     location.reload()
+}
+
+const getInfo = () => {
+    alert('El juego consiste en superar en cantidad de puntos a la banca.')
+    alert('Regla de puntuación: +valor si es menor o igual a 7 y +0.7 si es mayor que 7.')
 }
