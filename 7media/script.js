@@ -35,7 +35,7 @@ traseraJugador.addEventListener('click', () => {
     if (pointPlayer > 7.5) {
         document.getElementById("boton").innerHTML += `Has perdido`
         plantar.disabled = true
-        setTimeout(actualizar, 500)
+        setTimeout(actualizar, 3000)
     }
 })
 
@@ -61,7 +61,7 @@ plantar.addEventListener('click', () => {
                 document.getElementById("bancaPunto").innerHTML = `Banca: ${pointBank}`
             }
         } while (repetido == true);
-    } while (pointBank < 7)
+    } while (pointBank < pointPlayer)
 
     //Si el punto del jugador en mayor gana el jugador
     if (pointPlayer > pointBank || pointBank > 7.5) {
@@ -72,24 +72,24 @@ plantar.addEventListener('click', () => {
 
     //Actualiza dentro de 0.5s
     plantar.disabled = true
-    setTimeout(actualizar, 500)
+    setTimeout(actualizar, 3000)
 })
 
 //Al clikear el boton de reiniciar llama a la funcion actualizar
 reiniciar.addEventListener('click', actualizar)
 
 //Funcion para obtener un numero aleatorio del 0-3 (Hay 4 tipos de palos)
-function getPalos() {
+getPalos = () => {
     return Math.floor(Math.random() * ((3 + 1) - 0) + 0)
 }
 
 //Funcion para obtener un numero aleatorio del 1-10 ( hay 10 cartas por palos)
-function getValores() {
+getValores = () => {
     return Math.floor(Math.random() * ((10 + 1) - 1) + 1)
 }
 
 //Funcion para asignar los puntos: los mayores de 7 son 0.5 puntos y los otros su valor
-function sumaPuntos(valor) {
+sumaPuntos = (valor) => {
     let point = 0
 
     if (valor <= 7) {
@@ -102,6 +102,6 @@ function sumaPuntos(valor) {
 }
 
 //Funcion actualizar: recarga la pagina
-function actualizar() {
+actualizar = () => {
     location.reload()
 }
