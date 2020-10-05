@@ -9,6 +9,10 @@ const cartasUsado = new Array()
 let pointPlayer = 0
 let pointBank = 0
 
+// window.onload(alert('El juego consiste en superar en cantidad de puntos a la banca.'),
+//     alert('Regla de puntuación: '),
+//     alert('+valor si es menor o igual a 7 y +0.5 si es mayor que 7.'))
+
 //Al clikear la trasera del jugador...
 traseraJugador.addEventListener('click', () => {
     let repetido = false;
@@ -63,6 +67,7 @@ plantar.addEventListener('click', () => {
         } while (repetido == true);
     } while (pointBank < pointPlayer)
 
+
     //Si el punto del jugador en mayor gana el jugador
     if (pointPlayer > pointBank || pointBank > 7.5) {
         document.getElementById("boton").innerHTML += `Has ganado`
@@ -104,4 +109,9 @@ sumaPuntos = (valor) => {
 //Funcion actualizar: recarga la pagina
 actualizar = () => {
     location.reload()
+}
+
+const getInfo = () => {
+    alert('El juego consiste en superar en cantidad de puntos a la banca.')
+    alert('Regla de puntuación: +valor si es menor o igual a 7 y +0.7 si es mayor que 7.')
 }
