@@ -1,5 +1,3 @@
-const dni = document.getElementById("dni").value;
-
 const validateDni = (dni) => {
     const validChars = "TRWAGMYFPDXBNJZSQVHLCKET";
     const nifRexp = /^[0-9]{8}[TRWAGMYFPDXBNJZSQVHLCKET]{1}$/i;
@@ -80,4 +78,25 @@ const validateCreditCard = (card) => {
     else console.log("card incorrecto");
 };
 
-validateEmail("dorian@gmail.com");
+//validateEmail("dorian@gmail.com");
+const bot = document.getElementById("boton");
+
+bot.addEventListener("click", () => {
+    let dni = document.getElementById("dni").value;
+    let email = document.getElementById("email").value;
+    let iban = document.getElementById("bank").value;
+    let password = document.getElementById("password").value;
+    let username = document.getElementById("name").value;
+    let url = document.getElementById("url").value;
+    let ip = document.getElementById("ip").value;
+    let card = document.getElementById("credit").value;
+
+    validateDni(dni);
+    validateEmail(email);
+    validateIban(iban);
+    validatePasswordModerate(password);
+    validateUsername(username);
+    validateUrl(url);
+    validateIP(ip);
+    validateCreditCard(card);
+});
