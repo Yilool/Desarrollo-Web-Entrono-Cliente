@@ -15,10 +15,11 @@ arrayUser[4] = new usuario(5, 'cinco')
 let identificador = prompt("Enter an ID: ")
 
 const getUser = (identificador, callback) => {
-    if (identificador > arrayUser.length) {
+    let user = arrayUser.find(u => arrayUser.id == identificador)
+    if (!user) {
         callback(`Not exist a user with id ${identificador}`)
     } else {
-        callback(null, arrayUser[identificador - 1])
+        callback(null, user)
     }
 }
 
