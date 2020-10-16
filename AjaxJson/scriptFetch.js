@@ -2,9 +2,7 @@ const getDat = document.getElementById("boton")
 
 getDat.addEventListener('click', () => {
     fetch('https://jsonplaceholder.typicode.com/users')
-        .then(res => res.ok ? Promise.resolve(res) : Promise.reject(res))
-        .then(res => res.json())
-        .then(res => mostrar(res))
+        .then(mostrar(res))
 })
 
 const mostrar = (user) => {
