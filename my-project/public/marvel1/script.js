@@ -33,26 +33,35 @@ getData.addEventListener('click', (e) => {
 })
 
 const getHero = (hero, id) => {
-    var heroe = hero.filter(e => e.ID == id)[0];
+    var heroe = null
 
-    console.log(heroe.json())
+    heroe = hero.filter(e => e.ID == id);
+
+    return heroe
 }
 
 const shTab = (h) => {
     const tabla = document.getElementById("heroTab")
-    var tr = document.createElement('tr')
 
-    var tdName = document.createElement('td')
-    tdName.text = `${h.Name}`
-    tr.appendChild(tdName)
+    if (tabla.childNodes.length > 2) {
+        tabla.lastChild.childNodes[0].innerHTML = `${h[0].Name}`
+        tabla.lastChild.childNodes[1].innerHTML = `${h[0].Gender}`
+        tabla.lastChild.childNodes[2].innerHTML = `${h[0].Fighting_Skills}`
+    } else {
+        var tr = document.createElement('tr')
 
-    var tdGender = document.createElement('td')
-    tdGender.text = `${h.Gender}`
-    tr.appendChild(tdGender)
+        var tdName = document.createElement('td')
+        tdName.innerHTML = `${h[0].Name}`
+        tr.appendChild(tdName)
 
-    var tdSkill = document.createElement('td')
-    tdSkill.text = `${h.Fighting_Skills}`
-    tr.appendChild(tdSkill)
+        var tdGender = document.createElement('td')
+        tdGender.innerHTML = `${h[0].Gender}`
+        tr.appendChild(tdGender)
 
-    tabla.appendChild(tr)
+        var tdSkill = document.createElement('td')
+        tdSkill.innerHTML = `${h[0].Fighting_Skills}`
+        tr.appendChild(tdSkill)
+
+        tabla.appendChild(tr)
+    }
 }
