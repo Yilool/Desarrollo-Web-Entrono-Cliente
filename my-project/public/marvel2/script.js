@@ -69,13 +69,13 @@ const getHero = (hero, align, gender) => {
 
     return heroe;
 };
-//para cada heroes creo una fila
+//sustituyo el curpo de la tabla por uno nuevo al que le voy añadiendo las filas creadas para cada nuevo héroes
 const shTab = (hero) => {
     const tabla = document.getElementById("heroTab");
+    const tbody = document.createElement("tbody");
 
-    for (let i = 2; i < tabla.childNodes.length; i++) {
-        tabla.childNodes[i].parentNode.removeChild(tabla.childNodes[i]);
-    }
+    tabla.replaceChild(tbody, document.getElementById("tCuerpo"));
+    tbody.id = "tCuerpo";
 
     for (const iteArray of hero) {
         for (const iteHero of iteArray) {
@@ -93,7 +93,7 @@ const shTab = (hero) => {
             tdSkill.innerHTML = `${iteHero.Fighting_Skills}`;
             tr.appendChild(tdSkill);
 
-            tabla.appendChild(tr);
+            tbody.appendChild(tr);
         }
     }
 };
