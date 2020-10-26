@@ -6,6 +6,7 @@ const getInForm = document.getElementById("getB_1");
 //al click muestra una tabla con todos los resultados
 getAll.addEventListener("click", () => {
     fetch("http://localhost:8080/empresa/product")
+        .then((p) => (p.ok ? Promise.resolve(p) : Promise.reject(p)))
         .then((p) => p.json())
         .then((p) => shTab(p));
 });
@@ -13,21 +14,21 @@ getAll.addEventListener("click", () => {
 getId.addEventListener("click", () => {
     const id = document.getElementById("ident").value;
 
-    fetch("http://localhost:8080/empresa/product")
+    fetch("http://localhost:8080/empresa/product/" + id)
+        .then((p) => (p.ok ? Promise.resolve(p) : Promise.reject(p)))
         .then((p) => p.json())
-        .then((p) => findPrd(p, id))
-        .then((p) => shTab(p))
-        .catch(alert(`No existe producto con id: ${id}`));
+        .then((p) => shTab1(p))
+        .catch((p) => alert(`No existe producto con id: ${id}`));
 });
 //al click muestra el resultado dentro de cada input del formulario
 getInForm.addEventListener("click", () => {
     const id = document.getElementById("ident").value;
 
-    fetch("http://localhost:8080/empresa/product")
+    fetch("http://localhost:8080/empresa/product/" + id)
+        .then((p) => (p.ok ? Promise.resolve(p) : Promise.reject(p)))
         .then((p) => p.json())
-        .then((p) => findPrd(p, id))
         .then((p) => shInForm(p))
-        .catch(alert(`No existe producto con id: ${id}`));
+        .catch((p) => alert(`No existe producto con id: ${id}`));
 });
 //al click hace una petición de post
 post.addEventListener("click", () => {
@@ -45,25 +46,13 @@ post.addEventListener("click", () => {
         },
     });
 });
-//funcion para buscar un producto que tenga el id que se pasa por parametro sino existe devuelve un mensaje
-const findPrd = (jarray, id) => {
-    const prd = jarray.filter((p) => p.prdId == id);
-
-    if (prd == null) {
-        return `No existe producto con id: ${id}`;
-    }
-
-    return prd;
-};
 //muestra el producto en los campos del formulario
-const shInForm = (jarray) => {
+const shInForm = (jPrd) => {
     const producto = document.getElementById("nombre");
     const precio = document.getElementById("precio");
 
-    for (const itePrd of jarray) {
-        producto.value = `producto : ${jarray[0].prdName}`;
-        precio.value = `precio: ${jarray[0].prdPrice}`;
-    }
+    producto.value = `producto : ${jPrd.prdName}`;
+    precio.value = `precio: ${jPrd.prdPrice}`;
 };
 //crea un nuevo cuerpo a la tabla en el que se añadiendo las filas para cada producto de la tabla
 const shTab = (jarray) => {
@@ -90,4 +79,28 @@ const shTab = (jarray) => {
 
         tbody.appendChild(tr);
     }
+};
+
+const shTab1 = (jPrd) => {
+    const tabla = document.getElementById("respuesta");
+    const tbody = document.createElement("tbody");
+
+    tabla.replaceChild(tbody, document.getElementById("tCuerpo"));
+    tbody.id = "tCuerpo";
+
+    var tr = document.createElement("tr");
+
+    var tId = document.createElement("td");
+    tId.innerHTML = `${jPrd.prdId}`;
+    tr.appendChild(tId);
+
+    var tName = document.createElement("td");
+    tName.innerHTML = `${jPrd.prdName}`;
+    tr.appendChild(tName);
+
+    var tPrice = document.createElement("td");
+    tPrice.innerHTML = `${jPrd.prdPrice}`;
+    tr.appendChild(tPrice);
+
+    tbody.appendChild(tr);
 };
