@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body align="center">
+    <!-- Tabla con los campos y botonrs del formulario -->
+    <h2>Formulario</h2>
+    <form action="" id="formulario">
+        <table align="center">
+            <tr>
+                <td><input type="text" placeholder="Nickname" id="nickname"></td>
+            </tr>
+            <tr>
+                <td><input type="text" placeholder="Nombre" id="nombre"></td>
+            </tr>
+            <tr>
+                <td><input type="password" name="password" placeholder="Password" id="password"></td>
+            </tr>
+            <tr>
+                <td><input type="text" name="dni" placeholder="DNI" id="dni"></td>
+            </tr>
+            <tr>
+                <td><input type="number" name="edad" placeholder="Edad" id="edad"></td>
+            </tr>
+            <tr>
+                <td><input type="submit" value="Registra Usuario" id="registra"></td>
+                <td><input type="button" value="Borrar Datos" id="borra"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="Consultar Usuario" id="consultaUsuario"></td>
+                <td><input type="button" value="Consultar Último Login" id="consultaUltimoLogin"></td>
+            </tr>
+        </table>
+    </form>
+    <!-- Tabla de respuesta resultante -->
+    <table id="respuesta">
+        <thead>
+            <th>Nombre</th>
+            <th>Dni</th>
+            <th>Edad</th>
+            <th>Fecha Alta</th>
+        </thead>
+        <tbody id="tCuerpo">
+
+        </tbody>
+    </table>
+    <!-- Enlace a js externo -->
+    <script src="Yiejer1.js"></script>
+</body>
+
+</html>
