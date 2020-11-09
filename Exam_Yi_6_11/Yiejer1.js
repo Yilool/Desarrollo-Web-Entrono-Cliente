@@ -11,9 +11,7 @@ registra.addEventListener("click", (e) => {
     let password = document.getElementById("password").value;
     let dni = document.getElementById("dni").value;
     let edad = document.getElementById("edad").value;
-    let fechaAlta = `${d.getDay}/${d.getMonth}/${
-    d.getFullYear
-  }  ${d.getHours()}:${d.getMinutes()}:${d.getSeconds()}`;
+    let fechaAlta = `${d.getDay()}/${d.getMonth()}/${d.getFullYear()}  ${d.getHours()}:${d.getMinutes()}:${d.getSeconds()}`;
 
     if (validatePasswordModerate(password)) {
         sessionStorage.setItem(
